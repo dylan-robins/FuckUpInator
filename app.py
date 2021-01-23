@@ -1,12 +1,17 @@
-import discord
-from datetime import datetime, timedelta
-import humanize
 import atexit
+import logging
+from datetime import datetime, timedelta
 from os import environ
+
+import discord
+import humanize
 
 from db import db
 
+print("Creating discord client...")
 client = discord.Client()
+
+print("Creating database...")
 db = db("database.dat")
 
 @client.event
@@ -19,6 +24,7 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
+    print("Received message")
     if message.author == client.user:
         return
 

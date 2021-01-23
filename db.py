@@ -4,6 +4,7 @@ import pickle
 
 class db:
     def __init__(self, path):
+        print("initializing database")
         self.save_path = path
         self.data = self.load()
     
@@ -17,12 +18,15 @@ class db:
         self.data[id] = time
     
     def save(self):
+        print("Saving database to file")
         with open(self.save_path, "wb") as ofile:
             pickle.dump(self.data, ofile)
 
     def load(self):
         if path.exists(self.save_path):
+            print("Loading database from file")
             with open(self.save_path, "rb") as ifile:
                 return pickle.load(ifile)
         else:
+            print("Creating new empty database in memory")
             return {}
