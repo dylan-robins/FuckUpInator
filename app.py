@@ -28,7 +28,7 @@ async def on_message(message):
         for id in ids:
             try:
                 last_fu = db.get_user_fu(id)
-                fu_delta = datetime.now - last_fu
+                fu_delta = humanize.naturaltime(datetime.now() - last_fu)
                 msg.append(f"<@{id}> last fucked up {fu_delta} ago.")
 
             except KeyError:
