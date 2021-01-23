@@ -59,4 +59,4 @@ def exit_handler():
 
 atexit.register(exit_handler)
 
-client.run(environ.get['DISCORD_TOKEN'])
+client.run(environ['DISCORD_TOKEN'])
