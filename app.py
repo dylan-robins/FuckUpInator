@@ -2,6 +2,7 @@ import discord
 from datetime import datetime, timedelta
 import humanize
 import atexit
+from os import environ
 
 from db import db
 
@@ -58,4 +59,4 @@ def exit_handler():
 
 atexit.register(exit_handler)
 
-client.run('ODAyNTY5NjU1NTkxNzYzOTc4.YAxJPA.uLl-5G_Ny546j6U_Wmc8MuRuqwg')
+client.run(environ.get['DISCORD_TOKEN'])
