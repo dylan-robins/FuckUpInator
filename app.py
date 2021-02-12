@@ -42,7 +42,10 @@ async def on_message(message):
             except KeyError:
                 msg.append(f"<@{id}> hasn't fucked up yet. Boring!")
 
-        await message.channel.send("\n".join(msg))
+        if len(msg) > 0:
+            await message.channel.send("\n".join(msg))
+        else:
+            await message.channel.send("No-one has fucked up yet. Nerds. :yawn:")
 
     if message.content.startswith('!reset'):
         ids = (user.id for user in message.mentions)
