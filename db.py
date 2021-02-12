@@ -6,9 +6,10 @@ class db:
     def __init__(self, path):
         print("initializing database")
         self.save_path = path
+        self.data = self.load()
 
     def get_user_fu(self, id):
-        self.load()
+        self.data = self.load()
         if id in self.data.keys():
             return self.data[id]
         else:
