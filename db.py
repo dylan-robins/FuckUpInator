@@ -9,7 +9,6 @@ class db:
         self.data = self.load()
 
     def get_user_fu(self, id):
-        self.data = self.load()
         if id in self.data.keys():
             return self.data[id]
         else:
@@ -17,7 +16,6 @@ class db:
 
     def set_user_fu(self, id, time):
         self.data[id] = time
-        self.save()
 
     def save(self):
         print("Saving database to file")
